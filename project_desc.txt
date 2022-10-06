@@ -1,0 +1,69 @@
+##################  INSTALL EXPO CLI & CREATE REACT NATIVE PROJECT ###############
+
+expo cli -g 
+expo init app-name
+cd into project created 
+
+
+######## START COMMANDS ##################
+expo start
+
+#####################  REDUX  ####################################
+npm install @reduxjs/toolkit
+npm install react-redux
+
+
+################### INSTALL TAILWIND ####################
+npm install tailwind-react-native-classnames
+
+######################### REACT NATIVE ELEMETS - MATERIAL UI LIKE DESIGN SYTSEM ############
+npm install react-native-elements
+npm install react-native-vector-icons
+npm install react-native-safe-area-context - install this with react native navigation 
+
+################## REACT NATIVE NAVIGATION ###################
+npm install @react-navigation/native --force
+npm install react-native-screens react-native-safe-area-context --force
+npm install @react-navigation/native-stack
+
+##################### GOOGLE API'S ###########################
+1) go to cloud.google.com 
+2) create a new project
+3) enable direction's api 
+4) enable plaves api
+5) enable Distance Matrix API
+6) go to credentials
+7) create credentials and copy api key
+8) create .env file and add .env to gitignore
+9) past api key in .env file 
+10) npm install react-native-dotenv --force
+11) add plugins in babel.congif.js
+
+import library follow step 3 from this page - https://www.npmjs.com/package/react-native-google-places-autocomplete
+
+
+resuable components
+
+
+################### REACT NATIVE MAPS ############################
+https://github.com/react-native-maps/react-native-maps
+npm install react-native-maps
+
+
+
+
+
+
+
+
+
+
+
+
+THINGS TO LOOK AT 
+- optional chaining
+
+TYPES OF CSS LEARNED
+- INLINE
+- STYLESHEET STYLES
+- TAILWIND
