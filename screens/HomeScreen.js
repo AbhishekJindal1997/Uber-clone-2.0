@@ -36,11 +36,12 @@ const HomeScreen = () => {
               fontSize: 18,
             },
           }}
+          onFail={(error) => console.error(error)}
           fetchDetails={true}
           minLength={2}
           enablePoweredByContainer={false}
           nearbyPlacesAPI='GooglePlacesSearch'
-          debounce={400} // fetches result after 400ms once we stop typing
+          debounce={300} // fetches result after 400ms once we stop typing
           placeholder='Where From ?'
           onPress={(data, details = null) => {
             dispatch(
@@ -52,10 +53,29 @@ const HomeScreen = () => {
             dispatch(setDestination(null));
           }}
           query={{
-            key: GGOGLE_MAPS_KEY,
+            key: "AIzaSyDQKjuay0HDB6hrE2YMIhfaLyh3UUCN7XA",
             language: "en",
           }}
         />
+
+        {/* <GooglePlacesAutocomplete
+          placeholder='Search'
+          onPress={(data, details = null) => {
+            console.log(data, details);
+          }}
+          query={{
+            key: "AIzaSyDQKjuay0HDB6hrE2YMIhfaLyh3UUCN7XA",
+            language: "en",
+          }}
+          styles={{
+            container: {
+              flex: 0,
+            },
+            textInput: {
+              fontSize: 18,
+            },
+          }}
+        /> */}
 
         <NavOptions />
       </View>

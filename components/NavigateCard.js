@@ -24,6 +24,7 @@ const NavigateCard = () => {
         <View>
           <GooglePlacesAutocomplete
             styles={toInputBoxStyles}
+            onFail={(error) => console.error(error)}
             placeholder='Where to?'
             debounce={400}
             returnKeyType={"search"}
@@ -41,7 +42,7 @@ const NavigateCard = () => {
             enablePoweredByContainer={false}
             nearbyPlacesAPI='GooglePlacesSearch'
             query={{
-              key: GGOGLE_MAPS_KEY,
+              key: "AIzaSyDQKjuay0HDB6hrE2YMIhfaLyh3UUCN7XA",
               language: "en",
             }}
           />
