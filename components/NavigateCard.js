@@ -42,7 +42,7 @@ const NavigateCard = () => {
             enablePoweredByContainer={false}
             nearbyPlacesAPI='GooglePlacesSearch'
             query={{
-              key: "AIzaSyDQKjuay0HDB6hrE2YMIhfaLyh3UUCN7XA",
+              key: GGOGLE_MAPS_KEY,
               language: "en",
             }}
           />

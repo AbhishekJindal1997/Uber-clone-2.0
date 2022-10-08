@@ -19,7 +19,7 @@ import { selectTravelTimeInformation } from "../slices/navSlice";
 const data = [
   {
     id: "Uber-X-123",
-    title: "UberX",
+    title: "Uber X",
     multiplier: 1,
     image: "https://links.papareact.com/3pn",
   },
@@ -48,26 +48,28 @@ const RideOptionsCard = () => {
     // <SafeAreaView style={tw`bg-white flex-row`}>
     //   <Text>Hello</Text>
     //</SafeAreaView>
-    <View style={tw`bg-white flex-1`}>
+    <View style={tw`bg-black flex-1`}>
       <View>
         <TouchableOpacity
           onPress={() => navigation.navigate("NavigateCard")}
           style={tw`absolute top-1 left-5 z-50 p-3 rounded-full`}
         >
-          <Icon name='chevron-left' type='fontawesome' />
+          <Icon name='chevron-left' type='fontawesome' color='whitesmoke' />
         </TouchableOpacity>
       </View>
-      <Text style={tw`text-center py-3 text-xl mb-3`}>
-        Select a Ride - {travelTimeInformation?.distance.text}
-      </Text>
+      <View style={tw`border-b border-gray-200 border-solid`}>
+        <Text style={tw`text-center py-3 text-xl mb-1 text-white `}>
+          Select a Ride - {travelTimeInformation?.distance.text}
+        </Text>
+      </View>
+
       <FlatList
-        style={tw`-mt-5`}
         data={data}
         keyExrtactor={(item) => item.id}
         renderItem={({ item: { id, title, multiplier, image }, item }) => (
           <TouchableOpacity
-            style={tw`flex-row justify-between items-center px-10 ${
-              id === selected?.id && "bg-gray-400"
+            style={tw`flex-row justify-between items-center px-5 ${
+              id === selected?.id && "bg-gray-700"
             }`}
             onPress={() => setSelected(item)}
           >
@@ -82,10 +84,12 @@ const RideOptionsCard = () => {
               }}
             />
             <View style={tw`-ml-6`}>
-              <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text>{travelTimeInformation?.duration.text}</Text>
+              <Text style={tw`text-xl font-semibold text-white`}>{title}</Text>
+              <Text style={tw`text-white`}>
+                {travelTimeInformation?.duration.text}
+              </Text>
             </View>
-            <Text style={tw`text-xl`}>
+            <Text style={tw`text-xl text-white`}>
               {new Intl.NumberFormat("en-gb", {
                 style: "currency",
                 currency: "CAD",
@@ -102,7 +106,9 @@ const RideOptionsCard = () => {
       <View style={tw`mt-auto border-t border-gray-200`}>
         <TouchableOpacity
           disabled={!selected}
-          style={tw`bg-black m-4 py-3 ${!selected && "bg-gray-300"}`}
+          style={tw`bg-gray-700 m-4 py-3 rounded-md ${
+            !selected && "bg-gray-700"
+          }`}
         >
           <Text style={tw`text-center text-white text-xl`}>
             Choose {selected?.title}
