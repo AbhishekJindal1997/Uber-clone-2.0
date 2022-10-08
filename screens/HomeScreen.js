@@ -58,25 +58,6 @@ const HomeScreen = () => {
           }}
         />
 
-        {/* <GooglePlacesAutocomplete
-          placeholder='Search'
-          onPress={(data, details = null) => {
-            console.log(data, details);
-          }}
-          query={{
-            key: "AIzaSyDQKjuay0HDB6hrE2YMIhfaLyh3UUCN7XA",
-            language: "en",
-          }}
-          styles={{
-            container: {
-              flex: 0,
-            },
-            textInput: {
-              fontSize: 18,
-            },
-          }}
-        /> */}
-
         <NavOptions />
       </View>
       <NavFavourites />
