@@ -24,39 +24,35 @@ const HomeScreen = () => {
             uri: "https://links.papareact.com/gzs",
           }}
         />
-
-        <GooglePlacesAutocomplete
-          styles={{
-            container: {
-              flex: 0,
-              // marginLeft: 8,
-              // marginRight: 8,
-            },
-            textInput: {
-              fontSize: 18,
-            },
-          }}
-          onFail={(error) => console.error(error)}
-          fetchDetails={true}
-          minLength={2}
-          enablePoweredByContainer={false}
-          nearbyPlacesAPI='GooglePlacesSearch'
-          debounce={300} // fetches result after 400ms once we stop typing
-          placeholder='Where From ?'
-          onPress={(data, details = null) => {
-            dispatch(
-              setOrigin({
-                location: details.geometry.location,
-                description: data.description,
-              })
-            );
-            dispatch(setDestination(null));
-          }}
-          query={{
-            key: GGOGLE_MAPS_KEY,
-            language: "en",
-          }}
-        />
+        <View style={tw`border-b border-white mb-5`}>
+          <GooglePlacesAutocomplete
+            styles={toInputBoxStyles}
+            textInputProps={{
+              placeholderTextColor: "gray",
+              returnKeyType: "search",
+            }}
+            onFail={(error) => console.error(error)}
+            fetchDetails={true}
+            minLength={2}
+            enablePoweredByContainer={false}
+            nearbyPlacesAPI='GooglePlacesSearch'
+            debounce={300}
+            placeholder='Where From ?'
+            onPress={(data, details = null) => {
+              dispatch(
+                setOrigin({
+                  location: details.geometry.location,
+                  description: data.description,
+                })
+              );
+              dispatch(setDestination(null));
+            }}
+            query={{
+              key: GGOGLE_MAPS_KEY,
+              language: "en",
+            }}
+          />
+        </View>
 
         <NavOptions />
       </View>
@@ -67,9 +63,13 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-// Default cSS
-// const styles = StyleSheet.create({
-//   text: {
-//     color: "blue",
-//   },
-// });
+const toInputBoxStyles = StyleSheet.create({
+  container: {
+    flex: 0,
+  },
+  textInput: {
+    backgroundColor: "black",
+    color: "white",
+    fontSize: 18,
+  },
+});

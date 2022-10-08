@@ -21,11 +21,15 @@ const NavigateCard = () => {
   return (
     <SafeAreaView style={tw`bg-black flex-1`}>
       <View style={tw`border-t border-black flex-shrink`}>
-        <View>
+        <View style={tw`border-b border-gray-50 mx-5 pt-2 `}>
           <GooglePlacesAutocomplete
             styles={toInputBoxStyles}
             onFail={(error) => console.error(error)}
             placeholder='Where to?'
+            textInputProps={{
+              placeholderTextColor: "gray",
+              returnKeyType: "search",
+            }}
             debounce={400}
             returnKeyType={"search"}
             minLength={2}
@@ -81,17 +85,11 @@ export default NavigateCard;
 
 const toInputBoxStyles = StyleSheet.create({
   container: {
-    backgroundColor: "black",
-    paddingTop: 10,
     flex: 0,
   },
   textInput: {
-    backgroundColor: "#DDDDDF",
-    borderRadius: 10,
+    backgroundColor: "black",
+    color: "white",
     fontSize: 18,
-  },
-  textInputContainer: {
-    paddingHorizontal: 20,
-    paddingBottom: 0,
   },
 });
